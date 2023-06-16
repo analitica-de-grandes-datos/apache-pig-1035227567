@@ -26,6 +26,6 @@ data = LOAD './data.csv' using PigStorage(',') AS (id:int, name:chararray, lastN
 
 select = FILTER data BY color matches '.*n$' ;
 
-result = FOREACH select GENERATE nombre, color;
+result = FOREACH select GENERATE name, color;
 
 STORE result INTO 'output/' using PigStorage(',');
